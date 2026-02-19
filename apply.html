@@ -3,196 +3,494 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply for Free AI Strategy Session | Genii AI</title>
+    <title>AI Strategy Session Application | Genii AI</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 40px 20px; }
-        .card { max-width: 680px; margin: 0 auto; background: white; border-radius: 20px; padding: 50px; box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
-        .back-link { display: inline-block; color: white; text-decoration: none; margin-bottom: 20px; opacity: 0.85; font-size: 0.95rem; }
-        .back-link:hover { opacity: 1; }
-        .logo { font-size: 1.4rem; font-weight: 800; color: #667eea; margin-bottom: 8px; }
-        h1 { font-size: 1.9rem; font-weight: 800; color: #2d3748; margin-bottom: 8px; }
-        .subtitle { color: #666; margin-bottom: 35px; font-size: 1rem; }
-        .progress { display: flex; gap: 8px; margin-bottom: 35px; }
-        .progress-step { height: 4px; border-radius: 2px; flex: 1; background: #e2e8f0; transition: background 0.3s; }
-        .progress-step.active { background: #667eea; }
-        .step { display: none; }
-        .step.active { display: block; }
-        .step-label { font-size: 0.8rem; color: #667eea; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
-        .form-group { margin-bottom: 22px; }
-        label { display: block; font-weight: 600; color: #374151; margin-bottom: 7px; font-size: 0.95rem; }
-        input, select, textarea { width: 100%; padding: 13px 16px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; transition: border-color 0.2s; font-family: inherit; }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: #667eea; }
-        textarea { height: 120px; resize: vertical; }
-        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; margin-top: 10px; }
-        .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(102,126,234,0.4); }
-        .btn-back { background: #f1f5f9; color: #64748b; margin-bottom: 12px; }
-        .btn-back:hover { background: #e2e8f0; box-shadow: none; }
-        .trust { display: flex; gap: 20px; margin-top: 25px; flex-wrap: wrap; }
-        .trust-item { font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 6px; }
-        .success { text-align: center; padding: 30px 0; }
-        .success-icon { font-size: 4rem; margin-bottom: 20px; }
-        .success h2 { font-size: 1.8rem; color: #2d3748; margin-bottom: 12px; }
-        .success p { color: #666; margin-bottom: 8px; }
-        @media (max-width: 600px) { .card { padding: 30px 20px; } .row { grid-template-columns: 1fr; } h1 { font-size: 1.5rem; } }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .form-container { 
+            max-width: 700px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 { 
+            color: #2d3748; 
+            margin-bottom: 10px; 
+            font-size: 2.2rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .required {
+            color: #e53e3e;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #667eea;
+            transition: width 0.4s ease;
+        }
+        
+        .step-indicator {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .error-message {
+            color: #e53e3e;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            background: #48bb78;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        
+        .success-message h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .help-text {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-top: 5px;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .radio-option:hover {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin-right: 12px;
+        }
+        
+        .radio-option.selected {
+            border-color: #667eea;
+            background: #edf2f7;
+        }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">&larr; Back to Genii AI</a>
-    <div class="card">
-        <div class="logo">Genii AI</div>
-        <h1>Apply for Your Free Strategy Session</h1>
-        <p class="subtitle">Takes 3 minutes. No obligation. We'll show you exactly where AI can save you the most time and money.</p>
-
-        <div class="progress">
-            <div class="progress-step active" id="p1"></div>
-            <div class="progress-step" id="p2"></div>
-            <div class="progress-step" id="p3"></div>
+    <div class="form-container">
+        <h1>Apply for Your Free AI Strategy Session</h1>
+        <p class="subtitle">Help us understand your needs so we can provide the most valuable consultation.</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 33%"></div>
         </div>
-
-        <form id="appForm">
-            <!-- Step 1 -->
-            <div class="step active" id="step1">
-                <div class="step-label">Step 1 of 3 — Contact Info</div>
-                <div class="row">
-                    <div class="form-group"><label>First Name *</label><input type="text" id="firstName" required placeholder="Jane"></div>
-                    <div class="form-group"><label>Last Name *</label><input type="text" id="lastName" required placeholder="Smith"></div>
-                </div>
-                <div class="form-group"><label>Work Email *</label><input type="email" id="email" required placeholder="jane@company.com"></div>
-                <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="+1 (555) 000-0000"></div>
-                <button type="button" class="btn" onclick="nextStep(1)">Continue &rarr;</button>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="step" id="step2">
-                <div class="step-label">Step 2 of 3 — Your Business</div>
-                <div class="form-group"><label>Company Name *</label><input type="text" id="company" required placeholder="Acme Corp"></div>
-                <div class="row">
-                    <div class="form-group">
-                        <label>Industry *</label>
-                        <select id="industry" required>
-                            <option value="">Select industry</option>
-                            <option>Technology</option>
-                            <option>Real Estate</option>
-                            <option>Healthcare</option>
-                            <option>Finance</option>
-                            <option>E-Commerce</option>
-                            <option>Manufacturing</option>
-                            <option>Professional Services</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Company Size</label>
-                        <select id="companySize">
-                            <option value="">Select size</option>
-                            <option>1-10 employees</option>
-                            <option>11-50 employees</option>
-                            <option>51-200 employees</option>
-                            <option>200+ employees</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group"><label>Biggest Business Challenge *</label><textarea id="challenge" required placeholder="Describe the repetitive tasks, bottlenecks, or processes you want to automate..."></textarea></div>
-                <button type="button" class="btn btn-back" onclick="prevStep(2)">&larr; Back</button>
-                <button type="button" class="btn" onclick="nextStep(2)">Continue &rarr;</button>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="step" id="step3">
-                <div class="step-label">Step 3 of 3 — Investment & Timeline</div>
+        
+        <div class="step-indicator">
+            <span id="stepIndicator">Step 1 of 3</span>
+        </div>
+        
+        <form id="leadForm">
+            <!-- Step 1: Contact Information -->
+            <div class="form-step active" data-step="1">
+                <h2 style="margin-bottom: 25px; color: #2d3748;">Contact Information</h2>
+                
                 <div class="form-group">
-                    <label>Estimated Budget Range</label>
-                    <select id="budget">
-                        <option value="">Select budget</option>
-                        <option>Under $5,000</option>
-                        <option>$5,000 - $15,000</option>
-                        <option>$15,000 - $50,000</option>
-                        <option>$50,000+</option>
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" id="lead_name" name="lead_name" required>
+                    <span class="error-message" id="error_lead_name">Please enter your full name</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address <span class="required">*</span></label>
+                    <input type="email" id="email_id" name="email_id" required>
+                    <span class="error-message" id="error_email_id">Please enter a valid email address</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <span class="error-message" id="error_phone">Please enter your phone number</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Company Name <span class="required">*</span></label>
+                    <input type="text" id="company_name" name="company_name" required>
+                    <span class="error-message" id="error_company_name">Please enter your company name</span>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" class="btn-primary" onclick="nextStep()">Next Step →</button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Business Details -->
+            <div class="form-step" data-step="2">
+                <h2 style="margin-bottom: 25px; color: #2d3748;">Business Details</h2>
+                
+                <div class="form-group">
+                    <label>Industry <span class="required">*</span></label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select your industry...</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Retail">Retail/E-commerce</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Professional Services">Professional Services</option>
+                        <option value="Real Estate">Real Estate</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
-                    <label>When do you want to get started?</label>
-                    <select id="timeline">
-                        <option value="">Select timeline</option>
-                        <option>Immediately (within 2 weeks)</option>
-                        <option>Soon (1 month)</option>
-                        <option>1-3 months</option>
-                        <option>3-6 months</option>
-                        <option>Exploring options</option>
+                    <label>Company Size <span class="required">*</span></label>
+                    <select id="company_size" name="company_size" required>
+                        <option value="">Select company size...</option>
+                        <option value="1-10">1-10 employees</option>
+                        <option value="11-50">11-50 employees</option>
+                        <option value="51-200">51-200 employees</option>
+                        <option value="201-500">201-500 employees</option>
+                        <option value="500+">500+ employees</option>
                     </select>
                 </div>
-                <button type="button" class="btn btn-back" onclick="prevStep(3)">&larr; Back</button>
-                <button type="button" class="btn" id="submitBtn" onclick="submitForm()">Submit Application &rarr;</button>
-                <div class="trust">
-                    <div class="trust-item">✓ No spam, ever</div>
-                    <div class="trust-item">✓ Response within 24 hours</div>
-                    <div class="trust-item">✓ Free, no obligation</div>
+                
+                <div class="form-group">
+                    <label>What's your biggest business challenge right now? <span class="required">*</span></label>
+                    <textarea id="notes" name="notes" required placeholder="E.g., 'Our customer service team is overwhelmed with repetitive questions' or 'Manual data entry is consuming too much time'"></textarea>
+                    <span class="help-text">Be specific - this helps us prepare for your consultation</span>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" class="btn-secondary" onclick="prevStep()">← Back</button>
+                    <button type="button" class="btn-primary" onclick="nextStep()">Next Step →</button>
                 </div>
             </div>
-
-            <!-- Success -->
-            <div class="step" id="stepSuccess">
-                <div class="success">
-                    <div class="success-icon">🎉</div>
-                    <h2>Application Received!</h2>
-                    <p><strong>Thank you!</strong> We've received your application and will review it right away.</p>
-                    <p style="margin-top:15px; color:#667eea; font-weight:600">Expect a call from our team within 24 hours.</p>
-                    <p style="margin-top:20px; font-size:0.9rem; color:#666">In the meantime, check your email for a confirmation and some AI automation resources we've put together for you.</p>
+            
+            <!-- Step 3: Project Details -->
+            <div class="form-step" data-step="3">
+                <h2 style="margin-bottom: 25px; color: #2d3748;">Project Details</h2>
+                
+                <div class="form-group">
+                    <label>Project Budget Range <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="budget_range" value="Under $5,000" required>
+                            <span>Under $5,000 - Small automation project</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="budget_range" value="$5,000 - $15,000">
+                            <span>$5,000 - $15,000 - Single AI agent deployment</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="budget_range" value="$15,000 - $50,000">
+                            <span>$15,000 - $50,000 - Multiple agents or complex workflow</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="budget_range" value="$50,000+">
+                            <span>$50,000+ - Enterprise-scale deployment</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Desired Timeline <span class="required">*</span></label>
+                    <select id="timeline" name="timeline" required>
+                        <option value="">Select timeline...</option>
+                        <option value="Urgent (1-2 weeks)">Urgent (1-2 weeks)</option>
+                        <option value="Soon (1 month)">Soon (1 month)</option>
+                        <option value="Planning (2-3 months)">Planning (2-3 months)</option>
+                        <option value="Exploring (3+ months)">Exploring (3+ months)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>How did you hear about us?</label>
+                    <select id="source" name="source">
+                        <option value="">Select one...</option>
+                        <option value="Google Search">Google Search</option>
+                        <option value="LinkedIn">LinkedIn</option>
+                        <option value="Referral">Referral</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Event/Conference">Event/Conference</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" class="btn-secondary" onclick="prevStep()">← Back</button>
+                    <button type="submit" class="btn-primary">Submit Application →</button>
                 </div>
             </div>
         </form>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 15px; color: #718096;">Submitting your application...</p>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            <h2>✓ Application Submitted Successfully!</h2>
+            <p style="margin-top: 10px;">Thank you for your interest! We'll review your application and reach out within 24 hours to schedule your free AI strategy session.</p>
+            <p style="margin-top: 15px; font-size: 0.95rem;">Check your email for confirmation and next steps.</p>
+        </div>
     </div>
-
+    
     <script>
         let currentStep = 1;
-
-        function nextStep(step) {
-            if (step === 1) {
-                if (!document.getElementById('firstName').value || !document.getElementById('email').value) {
-                    alert('Please fill in your name and email to continue.');
-                    return;
-                }
-            }
-            if (step === 2) {
-                if (!document.getElementById('company').value || !document.getElementById('industry').value || !document.getElementById('challenge').value) {
-                    alert('Please fill in your company name, industry, and business challenge to continue.');
-                    return;
-                }
-            }
-            document.getElementById('step' + step).classList.remove('active');
-            document.getElementById('p' + step).classList.remove('active');
-            currentStep = step + 1;
-            document.getElementById('step' + currentStep).classList.add('active');
-            if (currentStep <= 3) document.getElementById('p' + currentStep).classList.add('active');
+        const totalSteps = 3;
+        
+        // Radio button selection styling
+        document.querySelectorAll('.radio-option input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.radio-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.parentElement.classList.add('selected');
+            });
+        });
+        
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('stepIndicator').textContent = `Step ${currentStep} of ${totalSteps}`;
         }
-
-        function prevStep(step) {
-            document.getElementById('step' + step).classList.remove('active');
-            currentStep = step - 1;
-            document.getElementById('step' + currentStep).classList.add('active');
+        
+        function validateStep(step) {
+            const stepElement = document.querySelector(`.form-step[data-step="${step}"]`);
+            const inputs = stepElement.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                const errorElement = document.getElementById('error_' + input.id);
+                
+                if (!input.value.trim()) {
+                    if (errorElement) {
+                        errorElement.style.display = 'block';
+                    }
+                    input.style.borderColor = '#e53e3e';
+                    isValid = false;
+                } else if (input.type === 'email' && !input.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                    if (errorElement) {
+                        errorElement.style.display = 'block';
+                    }
+                    input.style.borderColor = '#e53e3e';
+                    isValid = false;
+                } else if (input.type === 'radio') {
+                    const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
+                    const checked = Array.from(radioGroup).some(r => r.checked);
+                    if (!checked) {
+                        isValid = false;
+                    }
+                } else {
+                    if (errorElement) {
+                        errorElement.style.display = 'none';
+                    }
+                    input.style.borderColor = '#e2e8f0';
+                }
+            });
+            
+            return isValid;
         }
-
-        async function submitForm() {
-            const btn = document.getElementById('submitBtn');
-            btn.textContent = 'Submitting...';
-            btn.disabled = true;
-
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const company = document.getElementById('company').value;
-            const industry = document.getElementById('industry').value;
-            const companySize = document.getElementById('companySize').value;
-            const challenge = document.getElementById('challenge').value;
-            const budget = document.getElementById('budget').value;
-            const timeline = document.getElementById('timeline').value;
-
-            const notes = `AI Strategy Session Application\n\nBusiness Challenge: ${challenge}\n\nCompany Size: ${companySize}\nBudget Range: ${budget}\nTimeline: ${timeline}\n\nSource: Genii AI Website Funnel`;
-
+        
+        function nextStep() {
+            if (!validateStep(currentStep)) {
+                return;
+            }
+            
+            if (currentStep < totalSteps) {
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+                currentStep++;
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+                updateProgress();
+                window.scrollTo(0, 0);
+            }
+        }
+        
+        function prevStep() {
+            if (currentStep > 1) {
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+                currentStep--;
+                document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+                updateProgress();
+                window.scrollTo(0, 0);
+            }
+        }
+        
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateStep(currentStep)) {
+                return;
+            }
+            
+            // Show loading, hide form
+            document.getElementById('leadForm').style.display = 'none';
+            document.querySelector('.progress-bar').style.display = 'none';
+            document.querySelector('.step-indicator').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            // Collect form data
+            const formData = {
+                lead_name: document.getElementById('lead_name').value,
+                email_id: document.getElementById('email_id').value,
+                phone: document.getElementById('phone').value,
+                company_name: document.getElementById('company_name').value,
+                industry: document.getElementById('industry').value,
+                status: 'Lead', // ERPNext Lead status
+                source: document.getElementById('source').value || 'Website',
+                notes: `${document.getElementById('notes').value}\n\nCompany Size: ${document.getElementById('company_size').value}\nBudget Range: ${document.querySelector('input[name="budget_range"]:checked').value}\nTimeline: ${document.getElementById('timeline').value}`
+            };
+            
             try {
+                // Submit to ERPNext API
                 const ERPNEXT_URL = 'https://geniinow.v.frappe.cloud';
                 const API_KEY = 'f9fcb34a7edc1ab';
                 const API_SECRET = '4e77b2d0fab2e42';
@@ -201,32 +499,45 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `token ${API_KEY}:${API_SECRET}`
+                        'Authorization': 'token ' + API_KEY + ':' + API_SECRET
                     },
-                    body: JSON.stringify({
-                        first_name: firstName,
-                        last_name: lastName,
-                        email_id: email,
-                        phone: phone,
-                        company_name: company,
-                        industry: industry,
-                        source: 'Website',
-                        status: 'Lead',
-                        notes: [{ note: notes }]
-                    })
+                    body: JSON.stringify(formData)
                 });
-
-                // Show success regardless (lead may still be created even if response varies)
-                document.getElementById('step3').classList.remove('active');
-                document.getElementById('stepSuccess').classList.add('active');
-                document.querySelectorAll('.progress-step').forEach(s => s.style.background = '#667eea');
-
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Optional: Send to Google Analytics or other tracking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_submission', {
+                            'event_category': 'Lead Generation',
+                            'event_label': 'AI Development Consultation'
+                        });
+                    }
+                } else {
+                    throw new Error('Submission failed');
+                }
             } catch (error) {
-                // Still show success - lead intent captured
-                document.getElementById('step3').classList.remove('active');
-                document.getElementById('stepSuccess').classList.add('active');
+                alert('There was an error submitting your application. Please try again or email us directly at david@geniinow.com');
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('leadForm').style.display = 'block';
+                document.querySelector('.progress-bar').style.display = 'block';
+                document.querySelector('.step-indicator').style.display = 'block';
             }
-        }
+        });
+        
+        // Clear error messages on input
+        document.querySelectorAll('input, select, textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                const errorElement = document.getElementById('error_' + this.id);
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+                this.style.borderColor = '#e2e8f0';
+            });
+        });
     </script>
 </body>
 </html>
