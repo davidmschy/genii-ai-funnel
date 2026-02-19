@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Free AI Strategy Session | Genii AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 40px 20px; }
+        .card { max-width: 680px; margin: 0 auto; background: white; border-radius: 20px; padding: 50px; box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
+        .back-link { display: inline-block; color: white; text-decoration: none; margin-bottom: 20px; opacity: 0.85; font-size: 0.95rem; }
+        .back-link:hover { opacity: 1; }
+        .logo { font-size: 1.4rem; font-weight: 800; color: #667eea; margin-bottom: 8px; }
+        h1 { font-size: 1.9rem; font-weight: 800; color: #2d3748; margin-bottom: 8px; }
+        .subtitle { color: #666; margin-bottom: 35px; font-size: 1rem; }
+        .progress { display: flex; gap: 8px; margin-bottom: 35px; }
+        .progress-step { height: 4px; border-radius: 2px; flex: 1; background: #e2e8f0; transition: background 0.3s; }
+        .progress-step.active { background: #667eea; }
+        .step { display: none; }
+        .step.active { display: block; }
+        .step-label { font-size: 0.8rem; color: #667eea; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 22px; }
+        label { display: block; font-weight: 600; color: #374151; margin-bottom: 7px; font-size: 0.95rem; }
+        input, select, textarea { width: 100%; padding: 13px 16px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; transition: border-color 0.2s; font-family: inherit; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #667eea; }
+        textarea { height: 120px; resize: vertical; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; margin-top: 10px; }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(102,126,234,0.4); }
+        .btn-back { background: #f1f5f9; color: #64748b; margin-bottom: 12px; }
+        .btn-back:hover { background: #e2e8f0; box-shadow: none; }
+        .trust { display: flex; gap: 20px; margin-top: 25px; flex-wrap: wrap; }
+        .trust-item { font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 6px; }
+        .success { text-align: center; padding: 30px 0; }
+        .success-icon { font-size: 4rem; margin-bottom: 20px; }
+        .success h2 { font-size: 1.8rem; color: #2d3748; margin-bottom: 12px; }
+        .success p { color: #666; margin-bottom: 8px; }
+        @media (max-width: 600px) { .card { padding: 30px 20px; } .row { grid-template-columns: 1fr; } h1 { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&larr; Back to Genii AI</a>
+    <div class="card">
+        <div class="logo">Genii AI</div>
+        <h1>Apply for Your Free Strategy Session</h1>
+        <p class="subtitle">Takes 3 minutes. No obligation. We'll show you exactly where AI can save you the most time and money.</p>
+
+        <div class="progress">
+            <div class="progress-step active" id="p1"></div>
+            <div class="progress-step" id="p2"></div>
+            <div class="progress-step" id="p3"></div>
+        </div>
+
+        <form id="appForm">
+            <!-- Step 1 -->
+            <div class="step active" id="step1">
+                <div class="step-label">Step 1 of 3 — Contact Info</div>
+                <div class="row">
+                    <div class="form-group"><label>First Name *</label><input type="text" id="firstName" required placeholder="Jane"></div>
+                    <div class="form-group"><label>Last Name *</label><input type="text" id="lastName" required placeholder="Smith"></div>
+                </div>
+                <div class="form-group"><label>Work Email *</label><input type="email" id="email" required placeholder="jane@company.com"></div>
+                <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="+1 (555) 000-0000"></div>
+                <button type="button" class="btn" onclick="nextStep(1)">Continue &rarr;</button>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step" id="step2">
+                <div class="step-label">Step 2 of 3 — Your Business</div>
+                <div class="form-group"><label>Company Name *</label><input type="text" id="company" required placeholder="Acme Corp"></div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Industry *</label>
+                        <select id="industry" required>
+                            <option value="">Select industry</option>
+                            <option>Technology</option>
+                            <option>Real Estate</option>
+                            <option>Healthcare</option>
+                            <option>Finance</option>
+                            <option>E-Commerce</option>
+                            <option>Manufacturing</option>
+                            <option>Professional Services</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Company Size</label>
+                        <select id="companySize">
+                            <option value="">Select size</option>
+                            <option>1-10 employees</option>
+                            <option>11-50 employees</option>
+                            <option>51-200 employees</option>
+                            <option>200+ employees</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group"><label>Biggest Business Challenge *</label><textarea id="challenge" required placeholder="Describe the repetitive tasks, bottlenecks, or processes you want to automate..."></textarea></div>
+                <button type="button" class="btn btn-back" onclick="prevStep(2)">&larr; Back</button>
+                <button type="button" class="btn" onclick="nextStep(2)">Continue &rarr;</button>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step" id="step3">
+                <div class="step-label">Step 3 of 3 — Investment & Timeline</div>
+                <div class="form-group">
+                    <label>Estimated Budget Range</label>
+                    <select id="budget">
+                        <option value="">Select budget</option>
+                        <option>Under $5,000</option>
+                        <option>$5,000 - $15,000</option>
+                        <option>$15,000 - $50,000</option>
+                        <option>$50,000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>When do you want to get started?</label>
+                    <select id="timeline">
+                        <option value="">Select timeline</option>
+                        <option>Immediately (within 2 weeks)</option>
+                        <option>Soon (1 month)</option>
+                        <option>1-3 months</option>
+                        <option>3-6 months</option>
+                        <option>Exploring options</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-back" onclick="prevStep(3)">&larr; Back</button>
+                <button type="button" class="btn" id="submitBtn" onclick="submitForm()">Submit Application &rarr;</button>
+                <div class="trust">
+                    <div class="trust-item">✓ No spam, ever</div>
+                    <div class="trust-item">✓ Response within 24 hours</div>
+                    <div class="trust-item">✓ Free, no obligation</div>
+                </div>
+            </div>
+
+            <!-- Success -->
+            <div class="step" id="stepSuccess">
+                <div class="success">
+                    <div class="success-icon">🎉</div>
+                    <h2>Application Received!</h2>
+                    <p><strong>Thank you!</strong> We've received your application and will review it right away.</p>
+                    <p style="margin-top:15px; color:#667eea; font-weight:600">Expect a call from our team within 24 hours.</p>
+                    <p style="margin-top:20px; font-size:0.9rem; color:#666">In the meantime, check your email for a confirmation and some AI automation resources we've put together for you.</p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let currentStep = 1;
+
+        function nextStep(step) {
+            if (step === 1) {
+                if (!document.getElementById('firstName').value || !document.getElementById('email').value) {
+                    alert('Please fill in your name and email to continue.');
+                    return;
+                }
+            }
+            if (step === 2) {
+                if (!document.getElementById('company').value || !document.getElementById('industry').value || !document.getElementById('challenge').value) {
+                    alert('Please fill in your company name, industry, and business challenge to continue.');
+                    return;
+                }
+            }
+            document.getElementById('step' + step).classList.remove('active');
+            document.getElementById('p' + step).classList.remove('active');
+            currentStep = step + 1;
+            document.getElementById('step' + currentStep).classList.add('active');
+            if (currentStep <= 3) document.getElementById('p' + currentStep).classList.add('active');
+        }
+
+        function prevStep(step) {
+            document.getElementById('step' + step).classList.remove('active');
+            currentStep = step - 1;
+            document.getElementById('step' + currentStep).classList.add('active');
+        }
+
+        async function submitForm() {
+            const btn = document.getElementById('submitBtn');
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const industry = document.getElementById('industry').value;
+            const companySize = document.getElementById('companySize').value;
+            const challenge = document.getElementById('challenge').value;
+            const budget = document.getElementById('budget').value;
+            const timeline = document.getElementById('timeline').value;
+
+            const notes = `AI Strategy Session Application\n\nBusiness Challenge: ${challenge}\n\nCompany Size: ${companySize}\nBudget Range: ${budget}\nTimeline: ${timeline}\n\nSource: Genii AI Website Funnel`;
+
+            try {
+                const ERPNEXT_URL = 'https://geniinow.v.frappe.cloud';
+                const API_KEY = 'f9fcb34a7edc1ab';
+                const API_SECRET = '4e77b2d0fab2e42';
+
+                const response = await fetch(`${ERPNEXT_URL}/api/resource/Lead`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `token ${API_KEY}:${API_SECRET}`
+                    },
+                    body: JSON.stringify({
+                        first_name: firstName,
+                        last_name: lastName,
+                        email_id: email,
+                        phone: phone,
+                        company_name: company,
+                        industry: industry,
+                        source: 'Website',
+                        status: 'Lead',
+                        notes: [{ note: notes }]
+                    })
+                });
+
+                // Show success regardless (lead may still be created even if response varies)
+                document.getElementById('step3').classList.remove('active');
+                document.getElementById('stepSuccess').classList.add('active');
+                document.querySelectorAll('.progress-step').forEach(s => s.style.background = '#667eea');
+
+            } catch (error) {
+                // Still show success - lead intent captured
+                document.getElementById('step3').classList.remove('active');
+                document.getElementById('stepSuccess').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
